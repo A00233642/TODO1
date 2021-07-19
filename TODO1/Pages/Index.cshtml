@@ -9,6 +9,7 @@
 
 
 
+
     {
 
         List ListData = new List()
@@ -17,8 +18,22 @@
 
 
 
+
         };
 
+        <form method="get">
+
+
+            <input name="ViewDataDescription" type="text" />
+
+            <input name="ViewDatasubmit" type="submit" />
+
+            <input name="ViewDataDone" type="checkbox" />
+
+
+        </form>
+
+        <partial name="_ListClass" model="ListData" />
     }
 
 

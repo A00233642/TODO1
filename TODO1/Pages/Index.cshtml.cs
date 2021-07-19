@@ -19,8 +19,15 @@ namespace TODO1.Pages
 
         public void OnGet()
         {
+            
         }
-          
+            public int Id { get; set; }
+
+            public string Name { get; set; }
+
+        public bool Done { get; set; }
+
+        public DateTime RegisterDate { get; set; } = DateTime.Now;
     }
     }
 
