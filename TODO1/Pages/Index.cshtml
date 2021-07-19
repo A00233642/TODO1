@@ -9,7 +9,6 @@
 
 
 
-
     {
 
         List ListData = new List()
@@ -21,17 +20,6 @@
 
         };
 
-        <form method="get">
-
-
-            <input name="ViewDataDescription" type="text" />
-
-            <input name="ViewDatasubmit" type="submit" />
-
-            <input name="ViewDataDone" type="checkbox" />
-
-
-        </form>
 
         <partial name="_ListClass" model="ListData" />
     }
@@ -43,6 +31,18 @@
         <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
     </div>
 
+
+    <form method="get">
+
+
+        <input name="ViewDataDescription" type="text" />
+
+        <input name="ViewDatasubmit" type="submit" />
+
+        <input name="ViewDataDone" type="checkbox" />
+
+
+    </form>
 
 
 }

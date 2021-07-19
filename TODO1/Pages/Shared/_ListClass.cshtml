@@ -2,21 +2,21 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 
-
+@model List
 @using TODO1.ViewModels;
 
 
 @{
 
-    List data = (List)Model;
+    //List data = (List)Model;
 
 
     <form method="get">
-        <input name="Description" type="text" @data />
+        <input name="Description" type="text" @Model />
 
-        <input name="submit" type="submit" @data />
+        <input name="submit" type="submit" @Model />
 
-        <input name="Done" type="checkbox" @data />
+        <input name="Done" type="checkbox" @Model />
     </form>
 
     
