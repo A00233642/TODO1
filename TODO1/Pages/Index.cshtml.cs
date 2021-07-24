@@ -5,29 +5,57 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TODO1.Data.Context;
+using TODO1.ViewModels;
+using TODO1.Data;
 
 namespace TODO1.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly ILogger<IndexModel> _logger;
 
-        public IndexModel(ILogger<IndexModel> logger)
+        StoreContext _context;
+
+        [FromQuery]
+        public Items Items { get; set; }
+
+        [FromQuery]
+        public Items UpdateItems { get; set; }
+
+
+        public IndexModel(StoreContext context)
         {
-            _logger = logger;
+            _context = context;
         }
 
         public void OnGet()
-        {
-            
+         {
+           
         }
-            public int Id { get; set; }
 
-            public string Name { get; set; }
+        [FromQuery]
+        public int Id { get; set; }
+
+        public string Name { get; set; }
 
         public bool Done { get; set; }
 
         public DateTime RegisterDate { get; set; } = DateTime.Now;
+
+    
+
+        public void OnPost()
+
+        {
+
+          
     }
+
+      
+
+
     }
+
+  
+}
 

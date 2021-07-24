@@ -18,7 +18,7 @@
         };
 
 
-        <partial name="_ListClass" model="ListData" />
+        @* <partial name="_ListClass" model="ListData" />*@
     }
 
 
@@ -32,7 +32,7 @@
     <form method="get">
 
 
-        <input name="ViewDataDescription" type="text" />
+        <input name="ViewDataName" type="text" />
 
         <input name="ViewDatasubmit" type="submit" />
 
@@ -43,4 +43,39 @@
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<form method="post" action="">
+    <input type="hidden" asp-for="Id" />
+
+    <div>
+        <label asp-for="Name"></label>
+        <input asp-for="Name" />
+        <span asp-validation-for="Name"></span>
+    </div>
+    <div>
+        <label asp-for="Done"></label>
+        <input asp-for="Done" />
+        <span asp-validation-for="Done"></span>
+    </div>
+    <input type="submit" value="Submit" />
+</form>
 
