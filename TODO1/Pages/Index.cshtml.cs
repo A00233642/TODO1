@@ -8,52 +8,72 @@ using System.Threading.Tasks;
 using TODO1.Data.Context;
 using TODO1.ViewModels;
 using TODO1.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace TODO1.Pages
 {
     public class IndexModel : PageModel
     {
+        private readonly ILogger<IndexModel> _logger;
+        private StoreContext _context { get; set; }
 
-        StoreContext _context;
+       
+        //StoreContext _context;
 
-        [FromQuery]
-        public Items Items { get; set; }
+        [BindProperty]
+        public Items Item { get; set; }
 
-        [FromQuery]
-        public Items UpdateItems { get; set; }
+        
+
+        public IEnumerable<Items> Log;
 
 
-        public IndexModel(StoreContext context)
+        public IndexModel(ILogger<IndexModel> logger, StoreContext context)
         {
+            _logger = logger;
             _context = context;
+            
+
         }
+
+        
+       
 
         public void OnGet()
          {
-           
+            if (Item != null && Item.Id > 0)
+            {
+                Item.Done = true;
+                _context.Items.Update(Item);
+                _context.SaveChanges();
+
+            }
+
+            Log = _context.Items.ToList();
+
         }
 
-        [FromQuery]
-        public int Id { get; set; }
 
-        public string Name { get; set; }
 
-        public bool Done { get; set; }
-
-        public DateTime RegisterDate { get; set; } = DateTime.Now;
-
-    
 
         public void OnPost()
 
         {
+            if (!String.IsNullOrEmpty(Item.Name))
+            {
+                _context.Items.Add(Item);
+                _context.SaveChanges();
+            }
 
-          
-    }
-
-      
+         
+            Log = _context.Items.ToList();
 
 
+        }
+
+       
+
+         
     }
 
   
