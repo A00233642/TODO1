@@ -13,8 +13,8 @@ namespace TODO1.Data
         public int Id { get; set; }
 
         [Required]
-        [StringLength(128, MinimumLength = 1)]
-        public string Name { get; set; }
+        [StringLength(128, MinimumLength = 1)]  
+        public string Name{ get; set; }
 
         public bool Done { get; set; }
 

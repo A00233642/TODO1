@@ -1,48 +1,50 @@
 ﻿@page
 @model IndexModel
 
-@using TODO1.ViewModels;
+@using TODO1.Data;
 @{
+
+
     ViewData["Title"] = "Home page";
 
 
 
-
-
     {
+        Items ItemsData = new Items()
 
-        List ListData = new List()
+
         {
 
 
         };
 
 
-        @* <partial name="_ListClass" model="ListData" />*@
+        //<partial name="_Items" model="@ItemsData" />
+
+        <section>
+            @foreach (var itemData in Model.Log) ;
+            }
+            <partial name="_Items" model="@ItemsData" />
+            }
+
+        </section>
+
+        }
+
     }
 
 
 
-    <div class="text-center">
-        <h1 class="display-4">Welcome</h1>
-        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-    </div>
 
 
-    <form method="get">
 
 
-        <input name="ViewDataName" type="text" />
-
-        <input name="ViewDatasubmit" type="submit" />
-
-        <input name="ViewDataDone" type="checkbox" />
 
 
-    </form>
-
-
-}
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
 
 
 
@@ -51,31 +53,28 @@
 
 
 
+<form asp-page="./index" method="post">
 
 
+    @*<label asp-for="Message.Id">Id</label>
+        <input asp-for="Message.Id" />*@
+    <label asp-for="Item.Name">Name:</label>
+    <input asp-for="Item.Name" />
+    <label asp-for="Item.Done"></label><input asp-for="Item.Done" />
+    <input type="submit" />
 
 
-
-
-
-
-
-
-
-
-<form method="post" action="">
-    <input type="hidden" asp-for="Id" />
-
-    <div>
-        <label asp-for="Name"></label>
-        <input asp-for="Name" />
-        <span asp-validation-for="Name"></span>
-    </div>
-    <div>
-        <label asp-for="Done"></label>
-        <input asp-for="Done" />
-        <span asp-validation-for="Done"></span>
-    </div>
-    <input type="submit" value="Submit" />
 </form>
+
+
+
+
+
+
+
+
+
+
+
+
 

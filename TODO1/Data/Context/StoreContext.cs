@@ -7,7 +7,7 @@ using TODO1.Data;
 
 namespace TODO1.Data.Context
 {
-    public class StoreContext
+    public class StoreContext 
         : DbContext
     {
         public StoreContext(DbContextOptions<StoreContext> options)
